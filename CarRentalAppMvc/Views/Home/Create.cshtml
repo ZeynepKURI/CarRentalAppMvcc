@@ -12,26 +12,24 @@
         <form asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <!-- FirstName Alanı -->
+            <!-- Araç Adı Dropdown -->
             <div class="form-group">
                 <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label"></label>
-                <select asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.Vehicle">
-                    <option value="">Select a Vehicle</option>
-                </select> <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.Name" class="text-danger"></span>
+                <select id="Name" asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.VehicleNames">
+                    <option value="">Araç Adını Seçiniz</option>
+                </select>
+                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.Name" class="text-danger"></span>
             </div>
 
- 
-
-           
-
-            <!-- VehicleWorkingTime Alanı -->
+            <!-- Plaka Dropdown -->
             <div class="form-group">
                 <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label"></label>
-                <select asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.Vehicle">
-                    <option value="">Select a Vehicle</option>
+                <select id="LicensePlate" asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.VehicleLicensePlates">
+                    <option value="">Plakayı Seçiniz</option>
                 </select>
-                <span asp-validation-for="VehicleWorkingTime.Vehicle.LicensePlate" class="text-danger"></span>
+                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="text-danger"></span>
             </div>
+
 
             <!-- ActiveWorkTime Alanı -->
             <div class="form-group">
@@ -61,7 +59,45 @@
     </div>
 </div>
 
-<!-- Validation Scripts -->
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#vehicleName').change(function () {
+                var selectedVehicleName = $("#vehicleName").val();
+                var licensePlateSelect = $('#licensePlate');
+                licensePlateSelect.empty(); // Önce eski seçenekleri temizle
+
+                if (selectedVehicleName) {
+                    $.getJSON('@Url.Action("GetLicensePlates")', { vehicleName: selectedVehicleName }, function (licensePlates) {
+                        if (licensePlates && licensePlates.length > 0) {
+                            licensePlateSelect.append($('<option/>', {
+                                value: "",
+                                text: "Plakayı Seçiniz"
+                            }));
+                            $.each(licensePlates, function (index, plate) {
+                                licensePlateSelect.append($('<option/>', {
+                                    value: plate.Value,
+                                    text: plate.Text
+                                }));
+                            });
+                        } else {
+                            licensePlateSelect.append($('<option/>', {
+                                value: "",
+                                text: "Plaka Bulunamadı"
+                            }));
+                        }
+                    }).fail(function () {
+                        alert('Plaka bilgileri alınırken bir hata oluştu.');
+                    });
+                } else {
+                    licensePlateSelect.append($('<option/>', {
+                        value: "",
+                        text: "Önce Araç Adını Seçiniz"
+                    }));
+                }
+            });
+        });
+    </script>
 }
+

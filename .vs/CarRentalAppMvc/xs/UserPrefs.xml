@@ -10,12 +10,10 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CarRentalAppMvc" expanded="True">
-            <Node name="CarRentalAppMvc">
+            <Node name="CarRentalAppMvc" expanded="True">
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True">
-                  <Node name="Create.cshtml" selected="True" />
-                </Node>
+                <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>

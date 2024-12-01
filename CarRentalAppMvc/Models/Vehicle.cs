@@ -12,7 +12,7 @@ namespace CarRentalAppMvc.Models
         public string Name { get; set; }
 
         [Required]
-        [MaxLength(7)]
+        [MaxLength(10)]
         public string LicensePlate { get; set; }
     }
 }
