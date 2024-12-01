@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{53E72B75-D01B-42E2-8193-0D5F7BAB2379}|https">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/Views/Home/Create.cshtml">
+    <Files>
+      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" />
+      <File FileName="CarRentalAppMvc/Models/VehicleWorkingTime.cs" />
+      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" Line="22" Column="1" />
+      <File FileName="CarRentalAppMvc/ViewModel/CreateModel.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CarRentalAppMvc" expanded="True">
+            <Node name="CarRentalAppMvc">
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Create.cshtml" selected="True" />
+                </Node>
+                <Node name="Shared" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

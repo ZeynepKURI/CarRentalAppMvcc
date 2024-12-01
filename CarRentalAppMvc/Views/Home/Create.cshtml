@@ -1,0 +1,67 @@
+﻿@model CarRentalAppMvc.ViewModel.CreateModel
+
+@{
+    ViewData["Title"] = "Create Vehicle Working Time"; <!-- Sayfa başlığı -->
+}
+
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <!-- Form Başlangıcı -->
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- FirstName Alanı -->
+            <div class="form-group">
+                <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label"></label>
+                <select asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.Vehicle">
+                    <option value="">Select a Vehicle</option>
+                </select> <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.Name" class="text-danger"></span>
+            </div>
+
+ 
+
+           
+
+            <!-- VehicleWorkingTime Alanı -->
+            <div class="form-group">
+                <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label"></label>
+                <select asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.Vehicle">
+                    <option value="">Select a Vehicle</option>
+                </select>
+                <span asp-validation-for="VehicleWorkingTime.Vehicle.LicensePlate" class="text-danger"></span>
+            </div>
+
+            <!-- ActiveWorkTime Alanı -->
+            <div class="form-group">
+                <label asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="control-label"></label>
+                <input asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="form-control" />
+                <span asp-validation-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="text-danger"></span>
+            </div>
+
+            <!-- MaintenanceTime Alanı -->
+            <div class="form-group">
+                <label asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="control-label"></label>
+                <input asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="form-control" />
+                <span asp-validation-for="@Model.VehicleWorkingTime.MaintenanceTime" class="text-danger"></span>
+            </div>
+
+            <!-- IdleTime Alanı -->
+            <div class="form-group">
+                <label asp-for="@Model.VehicleWorkingTime.IdleTime" class="control-label"></label>
+                <input asp-for="@Model.VehicleWorkingTime.IdleTime" class="form-control" disabled />
+                <span asp-validation-for="@Model.VehicleWorkingTime.IdleTime" class="text-danger"></span>
+            </div>
+
+            <!-- Submit Butonu -->
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <!-- Form Sonu -->
+    </div>
+</div>
+
+<!-- Validation Scripts -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
