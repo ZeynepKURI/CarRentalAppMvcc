@@ -22,7 +22,7 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    [HttpGet]
     public IActionResult List()
     {
         // VehicleWorkingTime'ları ve ilişkili Vehicle verilerini alıyoruz
@@ -32,6 +32,7 @@ public class HomeController : Controller
 
         return View(vehicleWorkingTimes);
     }
+    [HttpGet]
     public ActionResult Create()
     {
         var vehicles = _context.Vehicles.ToList();
@@ -53,26 +54,22 @@ public class HomeController : Controller
         return View(model);
     }
 
-    [HttpGet]
-    public JsonResult GetLicensePlates(string Name)
+    [HttpPost]
+    public IActionResult Create(CreateModel vw)
     {
-        if (!string.IsNullOrWhiteSpace(Name))
-        {
-            // Veritabanından araç adına göre plaka bilgilerini getiren sorgu
-            List<SelectListItem> licensePlates = _context.Vehicles
-                .Where(v => v.Name == Name) // Araç adına göre filtreleme
-                .OrderBy(v => v.LicensePlate)     // Plaka sırasına göre sıralama
-                .Select(v => new SelectListItem
-                {
-                    Value = v.LicensePlate,     // Dropdown Value
-                    Text = v.LicensePlate        // Dropdown Text
-                })
-                .ToList();
+        // IdleTime'ı hesapla
+        vw.VehicleWorkingTime.IdleTime = (7 * 24) - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
 
-            return Json(licensePlates); // JSON formatında döndür
-        }
-        return Json(null);
+        // VehicleWorkingTime nesnesini veritabanına ekle
+        _context.Add(vw.VehicleWorkingTime);
+
+        // Veritabanına kaydet
+        _context.SaveChanges();
+
+        // Başarıyla kaydedildikten sonra listeleme sayfasına yönlendir
+        return RedirectToAction("List");
     }
+
 
 
 

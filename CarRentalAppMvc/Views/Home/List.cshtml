@@ -9,7 +9,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>ID</th>
+      
             <th>Vehicle Name</th>
             <th>LicensePlate</th>
             <th>Active Work Time</th>
@@ -22,12 +22,12 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Vehicle?.Name</td>
-                <td>@item.Vehicle?.LicensePlate</td>
+               
+                <td>@item.Vehicle.Name</td>
+                <td>@item.Vehicle.LicensePlate</td>
                 <td>@item.ActiveWorkTime</td>
                 <td>@item.MaintenanceTime</td>
-                <td>@item.IdleTime/td>
+                <td>@item.IdleTime<td>
             </tr>
         }
     </tbody>
