@@ -45,12 +45,12 @@ public class HomeController : Controller
             VehicleWorkingTime = new VehicleWorkingTime(),
             VehicleNames = vehicles.Select(v => new SelectListItem
             {
-                Value = v.Id.ToString(),
+                Value = v.Name,
                 Text = v.Name
             }),
             VehicleLicensePlates = vehicles.Select(v => new SelectListItem
             {
-                Value = v.Id.ToString(),
+                Value = v.LicensePlate,
                 Text = v.LicensePlate
             })
         };

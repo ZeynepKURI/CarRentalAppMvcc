@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRentalAppMvc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241201132328_InitialCreate")]
+    [Migration("20241202101133_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -29,8 +29,8 @@ namespace CarRentalAppMvc.Migrations
 
                     b.Property<string>("LicensePlate")
                         .IsRequired()
-                        .HasMaxLength(7)
-                        .HasColumnType("varchar(7)");
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -48,6 +48,9 @@ namespace CarRentalAppMvc.Migrations
                         .HasColumnType("int");
 
                     b.Property<float>("ActiveWorkTime")
+                        .HasColumnType("float");
+
+                    b.Property<float>("IdleTime")
                         .HasColumnType("float");
 
                     b.Property<float>("MaintenanceTime")
