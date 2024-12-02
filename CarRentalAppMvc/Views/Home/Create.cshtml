@@ -1,58 +1,97 @@
 ﻿@model CarRentalAppMvc.ViewModel.CreateModel
 
 @{
-    ViewData["Title"] = "Create Vehicle Working Time"; <!-- Sayfa başlığı -->
+    ViewData["Title"] = "Create Vehicle Working Time";
 }
 
 <h4>Create Vehicle Working Time</h4>
 <hr />
-<div class="row">
-    <div class="col-md-6">
-        <!-- Form Başlangıcı -->
-        <form asp-action="Create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<style>
+    .vehicle-image {
+        text-align: center;
+        margin-top: 30px;
+    }
 
-            <!-- Araç Adı Dropdown -->
-            <div class="form-group">
-                <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label"></label>
-                <select id="Name" asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.VehicleNames">
-                    <option value="">Araç Adını Seçiniz</option>
-                </select>
-                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.Name" class="text-danger"></span>
+        .vehicle-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .btn {
+        padding: 12px 20px;
+        font-size: 16px;
+        background-color: #28a745; /* Yeşil ton */
+        border-color: #28a745;
+    }
+</style>
+
+<section class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-12 featured-top">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <!-- Form Başlangıcı -->
+                        <form asp-action="Create" method="post" class="request-form ftco-animate bg-primary p-4">
+                            <h2>Create Vehicle Working Time</h2>
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <!-- Araç Adı Dropdown -->
+                            <div class="form-group">
+                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label"></label>
+                                <select id="Name" asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.VehicleNames">
+                                    <option value="">Araç Adını Seçiniz</option>
+                                </select>
+                                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.Name" class="text-danger"></span>
+                            </div>
+
+                            <!-- Plaka Dropdown -->
+                            <div class="form-group">
+                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label"></label>
+                                <select id="LicensePlate" asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.VehicleLicensePlates">
+                                    <option value="">Plakayı Seçiniz</option>
+                                </select>
+                                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="text-danger"></span>
+                            </div>
+
+                            <!-- ActiveWorkTime Alanı -->
+                            <div class="form-group">
+                                <label asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="control-label"></label>
+                                <input asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="form-control" />
+                                <span asp-validation-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="text-danger"></span>
+                            </div>
+
+                            <!-- MaintenanceTime Alanı -->
+                            <div class="form-group">
+                                <label asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="control-label"></label>
+                                <input asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="form-control" />
+                                <span asp-validation-for="@Model.VehicleWorkingTime.MaintenanceTime" class="text-danger"></span>
+                            </div>
+
+                            <!-- Boşta Zaman (IdleTime) Alanı -->
+                            <div class="form-group">
+                                <label for="IdleTime" class="control-label">Boşta Zaman (Hesaplanacak)</label>
+                                <input type="number" id="IdleTime" name="VehicleWorkingTime.IdleTime" class="form-control" readonly value="@Model.VehicleWorkingTime.IdleTime" />
+                            </div>
+
+                           
+                            <div class="form-group" style="margin-top: 20px;">
+                                <p><button type="submit" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</button></p>
+                            </div>
+
+                        </form>
+                        <!-- Form Sonu -->
+                    </div>
+
+             
+                </div>
             </div>
-
-            <!-- Plaka Dropdown -->
-            <div class="form-group">
-                <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label"></label>
-                <select id="LicensePlate" asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.VehicleLicensePlates">
-                    <option value="">Plakayı Seçiniz</option>
-                </select>
-                <span asp-validation-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="text-danger"></span>
-            </div>
-
-            <!-- ActiveWorkTime Alanı -->
-            <div class="form-group">
-                <label asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="control-label"></label>
-                <input asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="form-control" />
-                <span asp-validation-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="text-danger"></span>
-            </div>
-
-            <!-- MaintenanceTime Alanı -->
-            <div class="form-group">
-                <label asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="control-label"></label>
-                <input asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="form-control" />
-                <span asp-validation-for="@Model.VehicleWorkingTime.MaintenanceTime" class="text-danger"></span>
-            </div>
-
-            <!-- Boşta Zaman (IdleTime) Alanı -->
-            <div class="form-group">
-                <label for="IdleTime" class="control-label">Boşta Zaman (Hesaplanacak)</label>
-                <input type="number" id="IdleTime" name="VehicleWorkingTime.IdleTime" class="form-control" readonly value="@Model.VehicleWorkingTime.IdleTime" />
-            </div>
-
-            <!-- Submit Butonu -->
-            <button type="submit" class="btn btn-primary">Save</button>
-        </form>
-        <!-- Form Sonu -->
+        </div>
     </div>
-</div>
+</section>

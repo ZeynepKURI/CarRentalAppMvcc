@@ -19,9 +19,11 @@
   <ItemGroup>
     <None Remove="Data\" />
     <None Remove="ViewModel\" />
+    <None Remove="images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="ViewModel\" />
+    <Folder Include="images\" />
   </ItemGroup>
 </Project>

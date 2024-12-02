@@ -77,6 +77,52 @@ public class HomeController : Controller
 
 
 
+    public async Task<IActionResult> ViewVehicles()
+    {
+        // VehicleWorkingTime ile ilişkili Vehicle verisini de yükle
+        var vehicleWorkingTimes = await _context.vehicleWorkingTimes
+            .Include(vwt => vwt.Vehicle)  // Vehicle navigasyon özelliğini dahil et
+            .ToListAsync();
+
+        var activeWorkTimeData = new List<float>();
+        var idleTimeData = new List<float>();
+        var vehicleNames = new List<string>();
+
+        foreach (var vehicle in vehicleWorkingTimes)
+        {
+            if (vehicle.Vehicle != null) // Vehicle verisi null değilse
+            {
+                // Araç ismini al
+                vehicleNames.Add(vehicle.Vehicle.Name);
+
+                // Aktif çalışma süresi ve boşta bekleme süresi hesapla
+                activeWorkTimeData.Add(vehicle.ActiveWorkTime);
+                idleTimeData.Add(vehicle.IdleTime);
+            }
+            else
+            {
+                // Eğer Vehicle null ise, hata mesajı ekle veya farklı işlem yap
+                vehicleNames.Add("Bilinmeyen Araç");
+                activeWorkTimeData.Add(0);
+                idleTimeData.Add(0);
+            }
+        }
+
+        // Bu verileri View'a gönder
+        ViewBag.VehicleNames = vehicleNames;
+        ViewBag.ActiveWorkTimeData = activeWorkTimeData;
+        ViewBag.IdleTimeData = idleTimeData;
+
+        return View();
+    }
+
+
+
+
+
+
+
+
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
