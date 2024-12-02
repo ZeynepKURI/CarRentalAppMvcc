@@ -1,17 +1,26 @@
 ﻿<Properties StartupConfiguration="{53E72B75-D01B-42E2-8193-0D5F7BAB2379}|https">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/Views/Home/Create.cshtml">
+  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/Controllers/HomeController.cs">
     <Files>
-      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" />
-      <File FileName="CarRentalAppMvc/Models/VehicleWorkingTime.cs" />
-      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" Line="22" Column="1" />
-      <File FileName="CarRentalAppMvc/ViewModel/CreateModel.cs" />
+      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" Line="20" Column="1" />
+      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" Line="58" Column="27" />
+      <File FileName="CarRentalAppMvc/Controllers/HomeController.cs" Line="74" Column="2" />
+      <File FileName="CarRentalAppMvc/Models/VehicleWorkingTime.cs" Line="17" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentalAppMvc" expanded="True">
+          <Node name="CarRentalAppMvc">
             <Node name="CarRentalAppMvc" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="HomeController.cs" selected="True" />
+              </Node>
+              <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="ViewModel" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
@@ -22,10 +31,6 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

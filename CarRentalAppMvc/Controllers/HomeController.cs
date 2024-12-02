@@ -22,6 +22,7 @@ public class HomeController : Controller
     {
         return View();
     }
+
     [HttpGet]
     public IActionResult List()
     {
@@ -32,6 +33,8 @@ public class HomeController : Controller
 
         return View(vehicleWorkingTimes);
     }
+
+
     [HttpGet]
     public ActionResult Create()
     {
@@ -57,9 +60,7 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Create(CreateModel vw)
     {
-        // IdleTime'ı hesapla
-        vw.VehicleWorkingTime.IdleTime = (7 * 24) - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
-
+       
         // VehicleWorkingTime nesnesini veritabanına ekle
         _context.Add(vw.VehicleWorkingTime);
 
@@ -69,7 +70,6 @@ public class HomeController : Controller
         // Başarıyla kaydedildikten sonra listeleme sayfasına yönlendir
         return RedirectToAction("List");
     }
-
 
 
 
