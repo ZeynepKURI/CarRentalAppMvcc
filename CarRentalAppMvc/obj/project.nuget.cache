@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mn5FEAMB/z8=",
+  "dgSpecHash": "Ma1NArh5RBkGJ6TuQ3Fla0r739k7xqG7jRk4DMgTshr0iuJ4IGiKADMZNUepGyHGvsT+fbBuXDZsxX8KXNu+3g==",
   "success": true,
   "projectFilePath": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/CarRentalAppMvc.csproj",
   "expectedPackageFiles": [
@@ -26,10 +26,7 @@
     "/Users/zeynepkuri/.nuget/packages/pomelo.entityframeworkcore.mysql/7.0.0/pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/zeynepkuri/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
-    "/Users/zeynepkuri/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.20/microsoft.netcore.app.host.osx-arm64.7.0.20.nupkg.sha512"
+    "/Users/zeynepkuri/.nuget/packages/system.text.json/7.0.0/system.text.json.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

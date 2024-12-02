@@ -1,28 +1,31 @@
 ﻿<Properties StartupConfiguration="{53E72B75-D01B-42E2-8193-0D5F7BAB2379}|https">
-  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/Controllers/HomeController.cs">
     <Files>
-      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" Line="20" Column="1" />
-      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" Line="58" Column="27" />
-      <File FileName="CarRentalAppMvc/Controllers/HomeController.cs" Line="74" Column="2" />
-      <File FileName="CarRentalAppMvc/Models/VehicleWorkingTime.cs" Line="17" Column="5" />
+      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" Line="6" Column="1" />
+      <File FileName="CarRentalAppMvc/Controllers/HomeController.cs" Line="23" Column="1" />
+      <File FileName="CarRentalAppMvc/Views/Home/List.cshtml" Line="6" Column="1" />
+      <File FileName="CarRentalAppMvc/Data/AppDbContext.cs" Line="1" Column="1" />
+      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" Line="1" Column="1" />
+      <File FileName="CarRentalAppMvc/Models/VehicleWorkingTime.cs" />
+      <File FileName="CarRentalAppMvc/Views/Home/Index.cshtml" Line="2" Column="15" />
+      <File FileName="CarRentalAppMvc/Views/Shared/_Layout.cshtml" />
+      <File FileName="CarRentalAppMvc/appsettings.json" />
+      <File FileName="CarRentalAppMvc/Migrations/20241201142353_AddIdleTimeToVehicleWorkingTime.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentalAppMvc">
-            <Node name="CarRentalAppMvc" expanded="True">
+          <Node name="CarRentalAppMvc" expanded="True">
+            <Node name="CarRentalAppMvc">
               <Node name="Controllers" expanded="True">
                 <Node name="HomeController.cs" selected="True" />
               </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Migrations" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="ViewModel" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+              <Node name="Views">
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>
@@ -31,7 +34,12 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/Controllers/HomeController.cs" relfile="CarRentalAppMvc/Controllers/HomeController.cs" line="23" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

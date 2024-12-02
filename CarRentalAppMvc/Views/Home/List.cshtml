@@ -1,8 +1,9 @@
 ﻿@model List<CarRentalAppMvc.Models.VehicleWorkingTime>
 
 @{
-    ViewData["List"] = "Vehicle Working Times";
+    ViewData["Title"] = "Create Vehicle Working Time"; <!-- Sayfa başlığı -->
 }
+
 
 
 <h1>Vehicle Working Times</h1>
@@ -30,11 +31,16 @@
                 <td>@item.MaintenanceTime</td>
                 <td class="idle-time">@item.IdleTime</td> <!-- IdleTime burada görüntüleniyor -->
                 <td>
-                 
-                    <a asp-action="Edit" asp-route-id="@item.Id">Düzenle</a>
-                    <a asp-action="Details" asp-route-id="@item.Id">Detay</a>
-                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                    <!-- Düzenle Linki: Edit işlemine yönlendirir -->
+                  
+
+                    <!-- Detay Linki: Details işlemine yönlendirir -->
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
+
+                    <!-- Sil Linki: Delete işlemine yönlendirir -->
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
                 </td>
+
             </tr>
         }
     </tbody>
