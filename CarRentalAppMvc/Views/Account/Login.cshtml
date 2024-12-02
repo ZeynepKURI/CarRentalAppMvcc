@@ -1,0 +1,23 @@
+﻿
+@model CarRentalAppMvc.Models.Users
+
+@{
+    ViewData["Title"] = "Create Vehicle Working Time";
+}
+
+<form method="post">
+    <div>
+        <label for="UserName">Kullanıcı Adı</label>
+        <input type="text" id="UserName" name="userName" required />
+    </div>
+    <div>
+        <label for="Password">Şifre</label>
+        <input type="password" id="Password" name="password" required />
+    </div>
+    <button type="submit">Giriş Yap</button>
+</form>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div style="color:red;">@ViewBag.ErrorMessage</div>
+}

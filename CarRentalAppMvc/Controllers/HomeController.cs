@@ -23,7 +23,31 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpGet]
+
+    // Create Action
+    public IActionResult VehicleCreate()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> VehicleCreate([Bind("Id,Name,LicensePlate")] Vehicle vehicle)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Add(vehicle);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index)); // Success redirect to Index or List page
+        }
+        return View(vehicle);
+    }
+
+
+
+
+
+[HttpGet]
     public IActionResult List()
     {
         // VehicleWorkingTime'ları ve ilişkili Vehicle verilerini alıyoruz

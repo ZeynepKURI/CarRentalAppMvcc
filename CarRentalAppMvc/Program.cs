@@ -1,5 +1,7 @@
 ﻿
 using CarRentalAppMvc.Data;
+using CarRentalAppMvc.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -15,7 +17,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)); // MySQL ile bağlantı
 });
-
 
 
 
@@ -38,7 +39,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Create}/{id?}");
 
 app.Run();
 

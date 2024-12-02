@@ -14,6 +14,6 @@ namespace CarRentalAppMvc.Data
         }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<VehicleWorkingTime> vehicleWorkingTimes { get; set; }
-
+         public DbSet<Users> users { get; set; }
     }
 }
