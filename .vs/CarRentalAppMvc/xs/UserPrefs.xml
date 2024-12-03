@@ -1,32 +1,37 @@
 ﻿<Properties StartupConfiguration="{53E72B75-D01B-42E2-8193-0D5F7BAB2379}|https">
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentalAppMvc/wwwroot/css/style.css">
     <Files>
-      <File FileName="CarRentalAppMvc/Controllers/HomeController.cs" Line="87" Column="1" />
-      <File FileName="CarRentalAppMvc/Views/Shared/_Layout.cshtml" />
+      <File FileName="CarRentalAppMvc/Controllers/HomeController.cs" Line="93" Column="1" />
       <File FileName="CarRentalAppMvc/Views/Home/ViewVehicles.cshtml" />
-      <File FileName="CarRentalAppMvc/Views/Home/List.cshtml" />
-      <File FileName="CarRentalAppMvc/Program.cs" />
-      <File FileName="CarRentalAppMvc/appsettings.json" />
-      <File FileName="CarRentalAppMvc/Models/Users.cs" />
-      <File FileName="CarRentalAppMvc/Data/AppDbContext.cs" />
-      <File FileName="CarRentalAppMvc/Models/Vehicle.cs" />
-      <File FileName="CarRentalAppMvc/ViewModel/CreateModel.cs" />
-      <File FileName="CarRentalAppMvc/Migrations/20241202101133_InitialCreate.cs" />
-      <File FileName="CarRentalAppMvc/Migrations/20241202173325_UsersCreate.cs" />
-      <File FileName="CarRentalAppMvc/Controllers/AccountController.cs" />
-      <File FileName="CarRentalAppMvc/Views/Account/Login.cshtml" />
-      <File FileName="CarRentalAppMvc/Views/Home/Create.cshtml" />
-      <File FileName="CarRentalAppMvc/Views/Account/Register.cshtml" />
+      <File FileName="CarRentalAppMvc/Views/Account/Login.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentalAppMvc/Views/Account/Register.cshtml" Line="63" Column="19" />
+      <File FileName="CarRentalAppMvc/Views/Shared/_Layout.cshtml" Line="42" Column="20" />
+      <File FileName="CarRentalAppMvc/Controllers/AccountController.cs" Line="71" Column="41" />
+      <File FileName="CarRentalAppMvc/wwwroot/css/style.css" Line="178" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentalAppMvc" expanded="True">
-            <Node name="CarRentalAppMvc" expanded="True">
-              <Node name="Controllers" expanded="True" />
+          <Node name="CarRentalAppMvc">
+            <Node name="CarRentalAppMvc">
               <Node name="Models" expanded="True" />
-              <Node name="ViewModel" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="Vehicle" expanded="True" />
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="style.css" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
@@ -34,9 +39,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.CarRentalAppMvc PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

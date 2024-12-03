@@ -1,23 +1,64 @@
-﻿
-@model CarRentalAppMvc.Models.Users
+﻿@model CarRentalAppMvc.Models.Users
 
 @{
     ViewData["Title"] = "Create Vehicle Working Time";
 }
 
-<form method="post">
-    <div>
-        <label for="UserName">Kullanıcı Adı</label>
-        <input type="text" id="UserName" name="userName" required />
-    </div>
-    <div>
-        <label for="Password">Şifre</label>
-        <input type="password" id="Password" name="password" required />
-    </div>
-    <button type="submit">Giriş Yap</button>
-</form>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- Alternatif: Eğer CSS dosyanız 'wwwroot' altındaysa -->
+    <link href="~/wwwroot/css/style.css" rel="stylesheet" />
+</head>
 
-@if (ViewBag.ErrorMessage != null)
-{
-    <div style="color:red;">@ViewBag.ErrorMessage</div>
-}
+<body>
+
+    <div class="wrapper">
+        <div class="container main">
+            <div class="row">
+
+                <div class="col-md-6 side-image">
+                    <img src="https://images.pexels.com/photos/16262262/pexels-photo-16262262/free-photo-of-kirmizi-ferrari-f430.jpeg" alt="Car Image" class="img-fluid">
+
+                </div>
+
+                <!-- Sağ taraf: Form -->
+                <div class="col-md-6 right">
+                    <div class="input-box">
+                        <header>Admin Girişi</header>
+                        <form method="post">
+                            <!-- Kullanıcı Adı -->
+                            <div class="input-field">
+                                <label for="UserName">Kullanıcı Adı</label>
+                                <input type="text" id="UserName" name="UserName" class="input" required />
+                            </div>
+
+                           
+                            <!-- Şifre -->
+                            <div class="input-field">
+                                <label for="PasswordHash">Şifre</label>
+                                <input type="password" id="PasswordHash" name="password" class="input" required />
+                            </div>
+
+                            <!-- Kayıt Ol Button -->
+                            <div class="input-field">
+                                <button type="submit" class="submit btn btn-primary">Giriş Yap</button>
+                            </div>
+
+                            <!-- Giriş Yap Linki -->
+                            <div class="login">
+                                <span>Hesap Oluşturun <a href="@Url.Action("Register", "Account")">>Kayıt Ol</a></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

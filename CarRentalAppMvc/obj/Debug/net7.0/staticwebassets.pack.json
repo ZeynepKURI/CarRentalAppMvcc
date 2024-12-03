@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/CarRentalAppMvc.bundle.scp.css"
     },
     {
+      "Id": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/logincss.css",
+      "PackagePath": "staticwebassets/css/logincss.css"
+    },
+    {
       "Id": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

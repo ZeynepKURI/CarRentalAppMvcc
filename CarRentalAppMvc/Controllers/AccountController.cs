@@ -59,7 +59,7 @@ namespace CarRentalAppMvc.Controllers
                 if (passwordVerificationResult == PasswordVerificationResult.Success)
                 {
                     // Kullanıcı giriş yaptı, burada session veya token kullanabilirsiniz
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "Vehicle");
                 }
                 else
                 {

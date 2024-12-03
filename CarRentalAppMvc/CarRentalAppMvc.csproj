@@ -19,15 +19,19 @@
   <ItemGroup>
     <None Remove="Data\" />
     <None Remove="ViewModel\" />
-    <None Remove="images\" />
     <None Remove="Views\Account\" />
     <None Remove="Views\Vehicle\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="ViewModel\" />
-    <Folder Include="images\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Vehicle\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\style.css" />
   </ItemGroup>
 </Project>
