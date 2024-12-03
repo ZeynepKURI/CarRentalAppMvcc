@@ -31,7 +31,6 @@
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.CarRentalAppMvc.props
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.CarRentalAppMvc.props
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/staticwebassets.pack.json
-/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/scopedcss/bundle/CarRentalAppMvc.styles.css
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/scopedcss/projectbundle/CarRentalAppMvc.bundle.scp.css
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/CarRentalAppMvc.dll
@@ -40,3 +39,4 @@
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/CarRentalAppMvc.genruntimeconfig.cache
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/ref/CarRentalAppMvc.dll
 /Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/CarRentalAppMvc.csproj.CopyComplete
+/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css

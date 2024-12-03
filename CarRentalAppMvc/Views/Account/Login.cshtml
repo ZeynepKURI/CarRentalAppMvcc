@@ -3,15 +3,16 @@
 @{
     ViewData["Title"] = "Create Vehicle Working Time";
 }
-
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/css/style.css" rel="stylesheet" />
-    <!-- Alternatif: Eğer CSS dosyanız 'wwwroot' altındaysa -->
-    <link href="~/wwwroot/css/style.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                                 <input type="text" id="UserName" name="UserName" class="input" required />
                             </div>
 
-                           
+
                             <!-- Şifre -->
                             <div class="input-field">
                                 <label for="PasswordHash">Şifre</label>
