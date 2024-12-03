@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using CarRentalAppMvc.ViewModel;
 using System;
+using static System.Net.Mime.MediaTypeNames;
+using System.Diagnostics.Metrics;
 
 namespace CarRentalAppMvc.Controllers;
 
@@ -22,9 +24,6 @@ public class HomeController : Controller
     {
         return View();
     }
-
-
-
 
 [HttpGet]
     public IActionResult List()
@@ -60,23 +59,37 @@ public class HomeController : Controller
         return View(model);
     }
 
+
+
     [HttpPost]
     public IActionResult Create(CreateModel vw)
     {
-        var idleTime = (7 * 24) - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
+        // Öncelikle aracın veritabanında var olup olmadığını kontrol ediyoruz
+        var existingVehicle = _context.Vehicles
+            .FirstOrDefault(v => v.Name == vw.VehicleWorkingTime.Vehicle.Name && v.LicensePlate == vw.VehicleWorkingTime.Vehicle.LicensePlate);
 
-        // Hesaplanan idleTime değerini VehicleWorkingTime objesine ekliyoruz
-       vw.VehicleWorkingTime.IdleTime = idleTime;
-        // VehicleWorkingTime nesnesini veritabanına ekle
-        _context.Add(vw);
+        if (existingVehicle != null)
+        {
+            // Eğer araç veritabanında varsa, sadece VehicleWorkingTime'ı ilişkilendiriyoruz
+            vw.VehicleWorkingTime.Vehicle = existingVehicle;  // Var olan aracı ilişkilendiriyoruz
 
-        // Veritabanına kaydet
-        _context.SaveChanges();
+            // Hesaplanan idleTime değerini VehicleWorkingTime objesine ekliyoruz
+            var idleTime = (7 * 24) - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
+            vw.VehicleWorkingTime.IdleTime = idleTime;
 
-        // Başarıyla kaydedildikten sonra listeleme sayfasına yönlendir
-        return RedirectToAction("List");
+            // VehicleWorkingTime nesnesini veritabanına ekliyoruz
+            _context.vehicleWorkingTimes.Add(vw.VehicleWorkingTime);
+            _context.SaveChanges();
+
+            return RedirectToAction("List");
+        }
+        else
+        {
+            // Eğer araç veritabanında yoksa, yeni bir araç eklemeye gerek yok
+            ModelState.AddModelError("", "Bu araç veritabanında mevcut.");
+            return View(vw);  // Aynı görünümü döndürüyoruz ve hata mesajını gösteriyoruz
+        }
     }
-
 
 
 
@@ -118,13 +131,6 @@ public class HomeController : Controller
 
         return View();
     }
-
-
-
-
-
-
-
 
 
 
