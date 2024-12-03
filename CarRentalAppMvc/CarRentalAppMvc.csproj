@@ -21,11 +21,13 @@
     <None Remove="ViewModel\" />
     <None Remove="images\" />
     <None Remove="Views\Account\" />
+    <None Remove="Views\Vehicle\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="ViewModel\" />
     <Folder Include="images\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Views\Vehicle\" />
   </ItemGroup>
 </Project>

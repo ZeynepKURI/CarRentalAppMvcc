@@ -24,27 +24,6 @@ public class HomeController : Controller
     }
 
 
-    // Create Action
-    public IActionResult VehicleCreate()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> VehicleCreate([Bind("Id,Name,LicensePlate")] Vehicle vehicle)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Add(vehicle);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index)); // Success redirect to Index or List page
-        }
-        return View(vehicle);
-    }
-
-
-
 
 
 [HttpGet]
@@ -89,7 +68,7 @@ public class HomeController : Controller
         // Hesaplanan idleTime değerini VehicleWorkingTime objesine ekliyoruz
        vw.VehicleWorkingTime.IdleTime = idleTime;
         // VehicleWorkingTime nesnesini veritabanına ekle
-        _context.Add(vw.VehicleWorkingTime);
+        _context.Add(vw);
 
         // Veritabanına kaydet
         _context.SaveChanges();

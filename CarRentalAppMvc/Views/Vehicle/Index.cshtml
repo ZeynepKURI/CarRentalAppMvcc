@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CarRentalAppMvc.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Vehicle List";
+}
+
+<h2>Vehicles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>License Plate</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr id="vehicle-@vehicle.Id">
+                <td>@vehicle.Name</td>
+                <td>@vehicle.LicensePlate</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Vehicle", new { id = vehicle.Id })" class="btn btn-primary">Edit</a>
+                    <!-- Silme Butonu -->
+                    <button class="btn btn-danger delete-btn" data-id="@vehicle.Id">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>$(document).ready(function () {
+            // Silme butonuna tıklama olayını dinle
+            $(".delete-btn").click(function () {
+                var vehicleId = $(this).data("id"); // Silinecek aracın ID'si
+
+                // Silme işlemi için Ajax çağrısı
+                if (confirm("Are you sure you want to delete this vehicle?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Vehicle/Delete", // Delete action'ının URL'si
+                        data: { id: vehicleId }, // Gönderilecek ID verisi
+                        success: function (response) {
+                            if (response.success) {
+                                // Silinen aracı sayfadan kaldır
+                                $("#vehicle-" + vehicleId).remove();
+                                alert("Vehicle deleted successfully.");
+                            }
+                        },
+                        error: function () {
+                            alert("Error deleting vehicle.");
+                        }
+                    });
+                }
+            });
+        });</script>
+}

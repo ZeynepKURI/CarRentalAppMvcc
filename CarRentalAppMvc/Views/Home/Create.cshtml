@@ -44,7 +44,7 @@
 
                             <!-- Araç Adı Dropdown -->
                             <div class="form-group">
-                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label"></label>
+                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="control-label">Araç Adı</label>
                                 <select id="Name" asp-for="@Model.VehicleWorkingTime.Vehicle.Name" class="form-control" asp-items="Model.VehicleNames">
                                     <option value="">Araç Adını Seçiniz</option>
                                 </select>
@@ -53,7 +53,7 @@
 
                             <!-- Plaka Dropdown -->
                             <div class="form-group">
-                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label"></label>
+                                <label asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="control-label">Araç Plakası</label>
                                 <select id="LicensePlate" asp-for="@Model.VehicleWorkingTime.Vehicle.LicensePlate" class="form-control" asp-items="Model.VehicleLicensePlates">
                                     <option value="">Plakayı Seçiniz</option>
                                 </select>
@@ -62,36 +62,50 @@
 
                             <!-- ActiveWorkTime Alanı -->
                             <div class="form-group">
-                                <label asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="control-label"></label>
-                                <input asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="form-control" />
+                                <label asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="control-label">Çalışma Zamanı</label>
+                                <input type="number" asp-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="form-control" id="ActiveWorkTime" step="any" oninput="calculateIdleTime()" />
                                 <span asp-validation-for="@Model.VehicleWorkingTime.ActiveWorkTime" class="text-danger"></span>
                             </div>
 
                             <!-- MaintenanceTime Alanı -->
                             <div class="form-group">
-                                <label asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="control-label"></label>
-                                <input asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="form-control" />
+                                <label asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="control-label">Boşta Bekleme Zamanı</label>
+                                <input type="number" asp-for="@Model.VehicleWorkingTime.MaintenanceTime" class="form-control" id="MaintenanceTime" step="any" oninput="calculateIdleTime()" />
                                 <span asp-validation-for="@Model.VehicleWorkingTime.MaintenanceTime" class="text-danger"></span>
                             </div>
 
                             <!-- Boşta Zaman (IdleTime) Alanı -->
                             <div class="form-group">
-                                <label for="IdleTime" class="control-label">Boşta Zaman (Hesaplanacak)</label>
-                                <input type="number" id="IdleTime" name="VehicleWorkingTime.IdleTime" class="form-control" readonly value="@Model.VehicleWorkingTime.IdleTime" />
+                                <label for="IdleTime" class="control-label">Boşta Bekleme Zamanı (Hesaplanacak)</label>
+                                <input type="number" id="IdleTime" name="VehicleWorkingTime.IdleTime" class="form-control" readonly />
                             </div>
-
                             <!-- Submit Butonu -->
                             <div class="form-group" style="margin-top: 20px;">
-                                <p><button type="submit" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</button></p>
+                                <p><button type="submit" class="btn btn-primary py-3 px-4">Kaydet</button></p>
                             </div>
-
                         </form>
                         <!-- Form Sonu -->
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<script>// JavaScript ile IdleTime'ı hesapla
+    function calculateIdleTime() {
+        var activeWorkTime = parseFloat(document.getElementById('ActiveWorkTime').value) || 0;
+        var maintenanceTime = parseFloat(document.getElementById('MaintenanceTime').value) || 0;
+
+        // Toplam çalışma saati (aktif çalışma + bakım süresi)
+        var totalTime = activeWorkTime + maintenanceTime;
+
+        // Haftanın toplam saati (7 gün * 24 saat = 168 saat)
+        var totalWeekTime = 7 * 24;
+
+        // IdleTime hesaplama
+        var idleTime = totalWeekTime - totalTime;
+
+        // Küsüratlı sayılar için IdleTime'ı göster
+        document.getElementById('IdleTime').value = idleTime.toFixed(2); // 2 ondalıklı basamağa yuvarlama
+    }</script>
