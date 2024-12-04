@@ -85,19 +85,28 @@ namespace CarRentalAppMvc.Controllers
             return View(vehicle);
         }
 
-        // Delete Action - Araç silme işlemi (ajax)
-        [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public JsonResult Delete(int id)
         {
-            var vehicle = await _context.Vehicles.FindAsync(id);
-            if (vehicle != null)
+            try
             {
-                _context.Vehicles.Remove(vehicle);
-                await _context.SaveChangesAsync();
+                var vehicle = _context.Vehicles.Find(id); 
+                if (vehicle == null)
+                {
+                    return Json(new { success = false, message = "Vehicle not found." }); 
+                }
+
+                _context.Vehicles.Remove(vehicle); 
+                _context.SaveChanges(); 
+
+                return Json(new { success = true }); 
             }
-            return Json(new { success = true });
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "Error deleting vehicle: " + ex.Message }); // Hata mesajı
+            }
         }
 
+        // Araç var mı kontrolü
         private bool VehicleExists(int id)
         {
             return _context.Vehicles.Any(e => e.Id == id);

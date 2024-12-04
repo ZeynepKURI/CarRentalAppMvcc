@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e9B91tRAfGSVC0eYDhLXHu1Dq0Zflm0DBDPcwdXokqM=",
+  "Hash": "N3Jbk3P7QbksmjnhGUbN/l3N8I71R+jbl2jSCgu06fA=",
   "Source": "CarRentalAppMvc",
   "BasePath": "_content/CarRentalAppMvc",
   "Mode": "Default",
@@ -814,23 +814,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/ındexstyles.css"
-    },
-    {
-      "Identity": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/logincss.css",
-      "SourceId": "CarRentalAppMvc",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/",
-      "BasePath": "_content/CarRentalAppMvc",
-      "RelativePath": "css/logincss.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/logincss.css"
     },
     {
       "Identity": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/site.css",
