@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N3Jbk3P7QbksmjnhGUbN/l3N8I71R+jbl2jSCgu06fA=",
+  "Hash": "Oxc7giHtBpQeLSybbeCTPoLrLKVEiVmJFqJL82CNMh0=",
   "Source": "CarRentalAppMvc",
   "BasePath": "_content/CarRentalAppMvc",
   "Mode": "Default",
@@ -831,23 +831,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
-    },
-    {
-      "Identity": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/styles.css",
-      "SourceId": "CarRentalAppMvc",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/",
-      "BasePath": "_content/CarRentalAppMvc",
-      "RelativePath": "css/styles.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/styles.css"
     },
     {
       "Identity": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/favicon.ico",

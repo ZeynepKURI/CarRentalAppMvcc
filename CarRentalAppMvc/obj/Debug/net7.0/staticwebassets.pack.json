@@ -185,10 +185,6 @@
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
-      "Id": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/styles.css",
-      "PackagePath": "staticwebassets/css/styles.css"
-    },
-    {
       "Id": "/Users/zeynepkuri/Projects/CarRentalAppMvc/CarRentalAppMvc/wwwroot/css/ındexstyles.css",
       "PackagePath": "staticwebassets/css/ındexstyles.css"
     },
