@@ -29,10 +29,4 @@
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Vehicle\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Remove="wwwroot\css\style.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="wwwroot\css\style.css" />
-  </ItemGroup>
 </Project>

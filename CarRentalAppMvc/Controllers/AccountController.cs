@@ -54,11 +54,11 @@ namespace CarRentalAppMvc.Controllers
             var user = _context.users.FirstOrDefault(u => u.UserName == userName);
             if (user != null)
             {
-                // Şifreyi doğrula
+              
                 var passwordVerificationResult = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
                 if (passwordVerificationResult == PasswordVerificationResult.Success)
                 {
-                    // Kullanıcı giriş yaptı, burada session veya token kullanabilirsiniz
+                   
                     return RedirectToAction("Create", "Vehicle");
                 }
                 else
@@ -76,7 +76,7 @@ namespace CarRentalAppMvc.Controllers
         // Logout (Çıkış)
         public IActionResult Logout()
         {
-            // Çıkış işlemleri yapılabilir, örneğin session silme
+           
             return RedirectToAction("Login");
         }
     }

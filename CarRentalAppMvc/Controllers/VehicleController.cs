@@ -36,7 +36,7 @@ namespace CarRentalAppMvc.Controllers
             {
                 _context.Add(vehicle);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction();
             }
             return View(vehicle);
         }
@@ -106,7 +106,6 @@ namespace CarRentalAppMvc.Controllers
             }
         }
 
-        // Araç var mı kontrolü
         private bool VehicleExists(int id)
         {
             return _context.Vehicles.Any(e => e.Id == id);

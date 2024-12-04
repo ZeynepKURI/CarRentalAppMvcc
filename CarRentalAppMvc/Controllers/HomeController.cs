@@ -28,9 +28,9 @@ public class HomeController : Controller
 [HttpGet]
     public IActionResult List()
     {
-        // VehicleWorkingTime'ları ve ilişkili Vehicle verilerini alıyoruz
+       
         List<VehicleWorkingTime> vehicleWorkingTimes = _context.vehicleWorkingTimes
-            .Include(vwt => vwt.Vehicle) // Vehicle bilgilerini dahil et
+            .Include(vwt => vwt.Vehicle) 
             .ToList();
 
         return View(vehicleWorkingTimes);
@@ -64,30 +64,32 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Create(CreateModel vw)
     {
-        // Öncelikle aracın veritabanında var olup olmadığını kontrol ediyoruz
+    
         var existingVehicle = _context.Vehicles
             .FirstOrDefault(v => v.Name == vw.VehicleWorkingTime.Vehicle.Name && v.LicensePlate == vw.VehicleWorkingTime.Vehicle.LicensePlate);
 
         if (existingVehicle != null)
         {
-            // Eğer araç veritabanında varsa, sadece VehicleWorkingTime'ı ilişkilendiriyoruz
-            vw.VehicleWorkingTime.Vehicle = existingVehicle;  // Var olan aracı ilişkilendiriyoruz
+           
+            vw.VehicleWorkingTime.Vehicle = existingVehicle; 
+                                                            
+            var totalWeekTime = 7 * 24;
 
-            // Hesaplanan idleTime değerini VehicleWorkingTime objesine ekliyoruz
-            var idleTime = (7 * 24) - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
-            vw.VehicleWorkingTime.IdleTime = idleTime;
+          
+            var idleTime = totalWeekTime - (vw.VehicleWorkingTime.ActiveWorkTime + vw.VehicleWorkingTime.MaintenanceTime);
 
-            // VehicleWorkingTime nesnesini veritabanına ekliyoruz
+
+         
             _context.vehicleWorkingTimes.Add(vw.VehicleWorkingTime);
             _context.SaveChanges();
 
-            return RedirectToAction("List");
+            return RedirectToAction();
         }
         else
         {
-            // Eğer araç veritabanında yoksa, yeni bir araç eklemeye gerek yok
+           
             ModelState.AddModelError("", "Bu araç veritabanında mevcut.");
-            return View(vw);  // Aynı görünümü döndürüyoruz ve hata mesajını gösteriyoruz
+            return View(vw);  
         }
     }
 
@@ -95,9 +97,9 @@ public class HomeController : Controller
 
     public async Task<IActionResult> ViewVehicles()
     {
-        // VehicleWorkingTime ile ilişkili Vehicle verisini de yükle
+     
         var vehicleWorkingTimes = await _context.vehicleWorkingTimes
-            .Include(vwt => vwt.Vehicle)  // Vehicle navigasyon özelliğini dahil et
+            .Include(vwt => vwt.Vehicle) 
             .ToListAsync();
 
         var activeWorkTimeData = new List<float>();
@@ -106,18 +108,17 @@ public class HomeController : Controller
 
         foreach (var vehicle in vehicleWorkingTimes)
         {
-            if (vehicle.Vehicle != null) // Vehicle verisi null değilse
+            if (vehicle.Vehicle != null) 
             {
-                // Araç ismini al
+              
                 vehicleNames.Add(vehicle.Vehicle.Name);
 
-                // Aktif çalışma süresi ve boşta bekleme süresi hesapla
                 activeWorkTimeData.Add(vehicle.ActiveWorkTime);
                 idleTimeData.Add(vehicle.IdleTime);
             }
             else
             {
-                // Eğer Vehicle null ise, hata mesajı ekle veya farklı işlem yap
+                
                 vehicleNames.Add("Bilinmeyen Araç");
                 activeWorkTimeData.Add(0);
                 idleTimeData.Add(0);
@@ -130,6 +131,43 @@ public class HomeController : Controller
         ViewBag.IdleTimeData = idleTimeData;
 
         return View();
+    }
+
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+     
+        var vehicleWorkingTime = _context.vehicleWorkingTimes
+            .Include(vwt => vwt.Vehicle) 
+            .FirstOrDefault(vwt => vwt.Id == id);
+
+        if (vehicleWorkingTime == null)
+        {
+            return NotFound();  
+        }
+
+        return View(vehicleWorkingTime);  
+    }
+
+    [HttpPost, ActionName("DeleteConfirmed")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        // VehicleWorkingTime'ı id'ye göre alıyoruz
+        var vehicleWorkingTime = _context.vehicleWorkingTimes
+            .FirstOrDefault(vwt => vwt.Id == id);
+
+        if (vehicleWorkingTime == null)
+        {
+            return NotFound(); 
+        }
+
+      
+        _context.vehicleWorkingTimes.Remove(vehicleWorkingTime);
+        _context.SaveChanges();
+
+      
+        return RedirectToAction(nameof(List));
     }
 
 

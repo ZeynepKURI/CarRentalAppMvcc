@@ -116,11 +116,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>function calculateIdleTime() {
-            var activeWorkTime = parseFloat(document.getElementById('ActiveWorkTime').value) || 0;
-            var maintenanceTime = parseFloat(document.getElementById('MaintenanceTime').value) || 0;
-            var totalWeekTime = 7 * 24; // 7 days * 24 hours
+            var activeWorkTime = parseFloat(document.getElementById('ActiveWorkTime').value) || 0; // Aktif çalışma süresi
+            var maintenanceTime = parseFloat(document.getElementById('MaintenanceTime').value) || 0; // Bakım süresi
+            var totalWeekTime = 7 * 24; // 7 gün * 24 saat = toplam hafta süresi
+
+            // Boşta bekleme süresi, toplam hafta süresi eksi aktif çalışma süresi ve bakım süresi
             var idleTime = totalWeekTime - (activeWorkTime + maintenanceTime);
+
+            // Sonucu, 2 ondalıklı sayıya yuvarlayarak 'IdleTime' input alanına yazıyoruz
             document.getElementById('IdleTime').value = idleTime.toFixed(2);
         }</script>
+
 </body>
 </html>
