@@ -29,8 +29,19 @@
         }
 
         footer {
-            background-color: #007bff; 
+            background-color: #007bff;
             color: #fff;
+        }
+
+        /* Ensuring all cards have the same height */
+        .card {
+            height: 100%;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
     </style>
 </head>
@@ -46,12 +57,10 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#">Anasayfa</a></li>
                     <li class="nav-item"><a class="nav-link" href="@Url.Action("Create", "Home")">Çıkış Yap</a></li>
-
                 </ul>
             </div>
         </div>
     </nav>
-
 
     <main>
         <!-- Welcome Section -->
@@ -62,20 +71,19 @@
 
         <div class="container my-5">
             <div class="row text-center">
-                <!-- Admin Card: Araç Ekleme -->
-                <div class="col-md-4">
+                <!-- Admin Card: Araç Kaydı -->
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 class="card-title">Araç Kaydı</h5>
                             <p class="card-text">Yeni araç ekleyin.</p>
-                          
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vehicleModal">Araç Ekle</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Admin Card: Araç Listeleme -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 class="card-title">Araç Listesi</h5>
@@ -85,8 +93,19 @@
                     </div>
                 </div>
 
+                <!-- Admin Card: Çalışma ve Bakım Süreleri -->
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Çalışma ve Bakım Süreleri Listesi</h5>
+                            <p class="card-text">Araçların çalışma ve bakım sürelerini inceleyin.</p>
+                            <a href="@Url.Action("List", "Home")" class="btn btn-danger">Çalışma Süreleri</a> <!-- Red button -->
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Admin Card: Rapor -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body">
                             <h5 class="card-title">Raporlar</h5>
